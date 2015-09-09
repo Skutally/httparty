@@ -529,11 +529,11 @@ module HTTParty
     end
     
     def lock_request(path, options = {}, &block)
-      perform_request 'LOCK', path, options, &block
+      perform_request Net::HTTP::Lock, path, options, &block
     end
     
     def unlock_request(path, options = {}, &block)
-      perform_request 'UNLOCK', path, options, &block
+      perform_request Net::HTTP::Unlock, path, options, &block
     end
 
     attr_reader :default_options
