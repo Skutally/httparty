@@ -528,11 +528,11 @@ module HTTParty
       perform_request Net::HTTP::Options, path, options, &block
     end
     
-    def lock(path, options = {}, &block)
+    def lock_request(path, options = {}, &block)
       perform_request 'LOCK', path, options, &block
     end
     
-    def unlock(path, options = {}, &block)
+    def unlock_request(path, options = {}, &block)
       perform_request 'UNLOCK', path, options, &block
     end
 
