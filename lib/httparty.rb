@@ -527,6 +527,14 @@ module HTTParty
     def options(path, options = {}, &block)
       perform_request Net::HTTP::Options, path, options, &block
     end
+    
+    def lock(path, options = {}, &block)
+      perform_request 'LOCK', path, options, &block
+    end
+    
+    def unlock(path, options = {}, &block)
+      perform_request 'UNLOCK', path, options, &block
+    end
 
     attr_reader :default_options
 
