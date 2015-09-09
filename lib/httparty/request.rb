@@ -9,7 +9,9 @@ module HTTParty
       Net::HTTP::Head,
       Net::HTTP::Options,
       Net::HTTP::Move,
-      Net::HTTP::Copy
+      Net::HTTP::Copy,
+      Net::HTTP::Lock,
+      Net::HTTP::Unlock
     ]
 
     SupportedURISchemes  = ['http', 'https', 'webcal', nil]
