@@ -284,7 +284,7 @@ module HTTParty
           unless options[:maintain_method_across_redirects] && options[:resend_on_redirect]
             self.http_method = Net::HTTP::Get
           end
-        elsif last_response.code != 307 && last_response.code != 308
+        elsif last_response.code != '307' && last_response.code != '308'
           unless options[:maintain_method_across_redirects]
             self.http_method = Net::HTTP::Get
           end
@@ -300,6 +300,8 @@ module HTTParty
 
     # Inspired by Ruby 1.9
     def handle_deflation
+      return if response_redirects?
+
       case last_response["content-encoding"]
       when "gzip", "x-gzip"
         body_io = StringIO.new(last_response.body)
